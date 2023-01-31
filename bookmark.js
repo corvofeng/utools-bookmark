@@ -79,8 +79,9 @@ function openUrlByEdge(item) {
     const url = item.url;
     const profile = item.profile;
     if (process.platform === 'win32') {
-        const args = ['shell:AppsFolder\\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge']
+        const args = ['msedge'];
         args.push(url)
+        args.push(`--profile-directory=${profile}`)
         cp.spawn('start', args, { shell: 'cmd.exe', detached: true }).once('error', () => {
             window.utools.shellOpenExternal(url)
         })
