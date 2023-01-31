@@ -81,7 +81,7 @@ function openUrlByEdge(item) {
     if (process.platform === 'win32') {
         const args = ['msedge'];
         args.push(url)
-        args.push(`--profile-directory=${profile}`)
+        args.push(`--profile-directory="${profile}"`)
         cp.spawn('start', args, { shell: 'cmd.exe', detached: true }).once('error', () => {
             window.utools.shellOpenExternal(url)
         })
