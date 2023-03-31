@@ -11,11 +11,15 @@ window.exports = {
         args: {
             enter: (action, callbackSetList) => {
                 bookmarksDataCache = []
+                bookmark.searchForEdge();
                 let chromeDataDir
                 let edgeDataDir
                 if (process.platform === 'win32') {
                     chromeDataDir = path.join(process.env.LOCALAPPDATA, 'Google/Chrome/User Data')
                     edgeDataDir = path.join(process.env.LOCALAPPDATA, 'Microsoft/Edge/User Data')
+                } else if (process.platform === 'linux') {
+                    chromeDataDir = path.join(process.env.HOME, '.config', 'google-chrome');
+                    edgeDataDir = path.join(process.env.HOME, '.config', 'microsoft-edge');
                 } else if (process.platform === 'darwin') {
                     chromeDataDir = path.join(window.utools.getPath('appData'), 'Google/Chrome')
                     edgeDataDir = path.join(window.utools.getPath('appData'), 'Microsoft Edge')

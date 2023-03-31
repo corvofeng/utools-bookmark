@@ -4,10 +4,13 @@ const fs = require('fs');
 
 
 // chromeDataDir = path.join(window.utools.getPath('appData'), 'Google/Chrome')
-edgeDataDir = "/Users/yfeng/Library/Application Support/Microsoft Edge"
+// edgeDataDir = "/Users/yfeng/Library/Application Support/Microsoft Edge"
+edgeDataDir = '/home/corvo/.config/microsoft-edge'
 
 // bookmarksDataCache.push(...getBookmarks(chromeDataDir, 'chrome'))
-console.log(bookmark.getBookmarks(edgeDataDir, 'edge'));
+// console.log(bookmark.getBookmarks(edgeDataDir, 'edge'));
+console.log(bookmark.searchForEdge());
+
 
 // bookmark.getBookmarks(edgeDataDir, 'edge');
 

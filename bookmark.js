@@ -74,6 +74,25 @@ function openUrlByChrome(item) {
         }
     }
 }
+var linuxEdge = null;
+
+const searchForEdge = () => {
+    if(linuxEdge !== null) {
+        return linuxEdge;
+    }
+    const versions = ['microsoft-edge-stable', 'microsoft-edge-beta'];
+    for (const version of versions) {
+      const cmd = `which ${version}`;
+      try {
+        result = cp.execSync(cmd);
+      } catch (error) {
+        return
+      }
+      linuxEdge = result.toString().trim();
+      break;
+    }
+    return linuxEdge;
+};
 
 function openUrlByEdge(item) {
     const url = item.url;
@@ -96,9 +115,13 @@ function openUrlByEdge(item) {
             window.utools.shellOpenExternal(url)
         }
     }
+    if (process.platform === 'linux') {
+        cp.spawn(linuxEdge, [`--profile-directory=${profile}`, url])
+    }
 }
 module.exports = {
     getBookmarks,
     openUrlByChrome,
+    searchForEdge,
     openUrlByEdge
 }

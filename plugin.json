@@ -1,7 +1,7 @@
 {
     "preload": "preload.js",
     "logo": "logo.png",
-    "platform": ["win32", "darwin"],
+    "platform": ["win32", "darwin", "linux"],
     "features": [{
         "code": "bookmarks-search",
         "explain": "Chrome、Edge 书签搜索",
