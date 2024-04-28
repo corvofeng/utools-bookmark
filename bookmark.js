@@ -3,7 +3,7 @@ const fs = require('fs');
 const cp = require('child_process');
 
 function getBookmarks(dataDir, browser) {
-    const profiles = ['Default', 'Profile 3', 'Profile 2', 'Profile 1'];
+    const profiles = ['Default', 'Profile 1', 'Profile 2', 'Profile 3'];
     let bookmarksData = [];
     profiles.forEach(profile => {
         if (!fs.existsSync(path.join(dataDir, profile, 'Bookmarks'))) {
@@ -21,8 +21,9 @@ function getBookmarks(dataDir, browser) {
                 if (!item || !Array.isArray(item.children)) return
                 item.children.forEach(c => {
                     if (c.type === 'url') {
-                        if (c.url.startsWith('mailto:') && c.name === 'Profile') {
-                            loginUser = c.url.split(':')[1];
+                        if (c.name === 'Profile' && c.url.startsWith('mailto:')) {
+                            loginUser = c.url.split('://')[1];
+                            console.log(loginUser)
                         }
                         profileBookmark.push({
                             addAt: parseInt(c.date_added),

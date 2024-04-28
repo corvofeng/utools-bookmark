@@ -11,7 +11,6 @@ edgeDataDir = '/home/corvo/.config/microsoft-edge'
 // console.log(bookmark.getBookmarks(edgeDataDir, 'edge'));
 console.log(bookmark.searchForEdge());
 
-
 // bookmark.getBookmarks(edgeDataDir, 'edge');
 
 // const icon = path.join(edgeDataDir, 'Default', 'Edge Profile Picture.png')
