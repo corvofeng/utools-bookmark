@@ -23,7 +23,6 @@ function getBookmarks(dataDir, browser) {
                     if (c.type === 'url') {
                         if (c.name === 'Profile' && c.url.startsWith('mailto:')) {
                             loginUser = c.url.split('://')[1];
-                            console.log(loginUser)
                         }
                         profileBookmark.push({
                             addAt: parseInt(c.date_added),
